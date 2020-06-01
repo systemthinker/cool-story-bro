@@ -8,6 +8,7 @@ import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
+import HomePageDetails from './pages/HomePageDetails'
 
 
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +51,8 @@ function App() {
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
-        <Route path="/homepages" component={HomePage} />
+        <Route exact path="/homepages" component={HomePage} />
+        <Route path="/homepages/:id" component={HomePageDetails} />
         
       </Switch>
     </div>
