@@ -1,9 +1,5 @@
 const initialState = 
-    [
-        {
-            homepageOneTest: "test",
-        },
-    ]
+    []
 
 
 export default (state = initialState, action) => {
@@ -11,14 +7,9 @@ export default (state = initialState, action) => {
       
         case "FETCH_HOMEPAGES_DISPLAY":
           
-           return {
-                
-
-            
-              ...state,
-              ...action.payload
+           return [...state, ...action.payload]
               
-            };
+           
             
             
         

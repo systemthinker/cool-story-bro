@@ -7,13 +7,14 @@ import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import {fetchHomepages} from './store/homepages/actions'
+import HomePage from "./pages/HomePage";
+
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
-import HomePage from "./pages/HomePage/HomePage"
+
 
 const Home = () => (
   
