@@ -9,11 +9,13 @@ import React from 'react'
 export default function HomePage() {
     const dispatch = useDispatch()
     const homepages = useSelector(selectHomepages)
+    const stories = homepages.stories
 
-    console.log('homepages', homepages)
+    
 
     useEffect( ()=>{
         dispatch(fetchHomepages())
+        
         
     },[dispatch])
     
@@ -21,6 +23,7 @@ export default function HomePage() {
     return (
         <div>
             <h1>does it work?</h1>
+            
             {homepages.map(homepage =>{
                 return (
                     
@@ -36,6 +39,7 @@ export default function HomePage() {
                          
                 )
             })}
+            
         </div>
     )
 }
