@@ -9,11 +9,12 @@ import React from 'react'
 export default function HomePage() {
     const dispatch = useDispatch()
     const homepages = useSelector(selectHomepages)
-    const stories = homepages.stories
+    
 
     
 
     useEffect( ()=>{
+
         dispatch(fetchHomepages())
         
         
