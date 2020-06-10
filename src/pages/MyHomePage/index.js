@@ -6,6 +6,7 @@ import { fetchMyHomePage } from '../../store/homepageDetails/actions'
 import { getUserWithStoredToken } from '../../store/user/actions'
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
 import MyHomePageCard from '../../components/MyHomePageCard'
+import MyHomepageEditForm from '../../components/MyHomePageEditForm'
 import Stories from '../../components/Stories'
 
 export default function MyHomePage() {
@@ -40,6 +41,8 @@ export default function MyHomePage() {
                           color={myPage.color}
                           showLink={true}
                         />
+
+                        <MyHomepageEditForm />
                         {stories.map(story =>{
                         return (
                                     <Stories 
