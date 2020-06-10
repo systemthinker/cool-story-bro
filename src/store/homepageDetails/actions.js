@@ -32,16 +32,20 @@ export const fetchDetailsPage = (id) => {
 export const fetchMyHomePage = () => {
    
     return async (dispatch,getState) => {
-      console.log('state', getState().user.id)
+      try{
 
       const id = getState().user.id
 
-     
-      const response = await axios.post(`http://localhost:4000/myhomepage/`,{id})
+           
+      const response = await axios.post(`http://localhost:4000/myhomepage`,{id})
 
-      console.log('response', response)
+      console.log('response', response.data)
         
      
-      // dispatch(fetchMyHomePageAction(response.data));
+      dispatch(fetchMyHomePageAction(response.data));
+
+      } catch(e){
+        console.log(`error: ${e.message}`)
+      }
     };
   };  
