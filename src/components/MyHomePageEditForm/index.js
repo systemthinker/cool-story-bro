@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
-import { updateMyPage } from "../../store/user/actions";
+import { updateMyHomePage } from "../../store/homepageDetails/actions";
 
 export default function MyHomePageEditForm() {
   const homepage = useSelector(selectMyHomePage);
@@ -20,7 +20,7 @@ export default function MyHomePageEditForm() {
     event.preventDefault();
 
     console.log(title, description, backgroundColor, color);
-    // dispatch(updateMyPage(title, description, backgroundColor, color));
+    dispatch(updateMyHomePage(title, description, backgroundColor, color));
   }
   return (
     <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
