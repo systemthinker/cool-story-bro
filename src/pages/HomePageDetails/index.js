@@ -13,7 +13,7 @@ export default function HomePageDetails() {
     const dispatch = useDispatch()
     const page = useSelector(selectDetailPage)
     const stories = page.stories || []
-    console.log('stories', stories)
+    
 
     
 
@@ -22,7 +22,7 @@ export default function HomePageDetails() {
         
     },[dispatch])
 
-    console.log('page test', page)
+    
     
     
     return (

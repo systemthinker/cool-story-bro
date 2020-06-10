@@ -1,7 +1,7 @@
 const initialState = 
     {
         details: "detailsTest",
-        myHomePage: {},
+        myHomePage: "start",
     }
 
 
@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
 
       return {
           ...state,
-          ...action.payload
+          details: {...action.payload}
       }
 
       case "FETCH_MY_HOMEPAGE" :

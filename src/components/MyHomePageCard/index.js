@@ -2,7 +2,7 @@ import React from 'react'
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 
-export default function HomepageDetails(props) {
+export default function MyHomePageCard(props) {
     return (
         <Jumbotron
           style={{
@@ -16,6 +16,4 @@ export default function HomepageDetails(props) {
         </Jumbotron>
       );
 }
-
-
 
