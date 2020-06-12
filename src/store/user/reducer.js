@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
-      console.log('action.payload voor login is', action.payload)
+      
       return { ...state, ...action.payload };
 
     case LOG_OUT:

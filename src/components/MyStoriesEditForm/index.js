@@ -6,27 +6,42 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
 import { updateMyHomePage } from "../../store/homepageDetails/actions";
 
-export default function MyHomePageEditForm() {
+export default function MyStoriesEditForm() {
   const homepage = useSelector(selectMyHomePage);
+  const stories = homepage.stories
   const dispatch = useDispatch();
-  const [title, setTitle] = useState(homepage.title);
-  const [description, setDescription] = useState(homepage.description || "");
-  const [backgroundColor, setBackgroundColor] = useState(
-    homepage.backgroundColor
+
+  const [names, setNames] = useState(stories.map(story=>story.name));
+  const [content, setContent] = useState(stories.map(story=>story.content) || []);
+  const [imageUrl, setImageUrl] = useState(
+    stories.map(story=>story.imageUrl) || []
   );
-  const [color, setColor] = useState(homepage.color);
+  
 
   function submitForm(event) {
     event.preventDefault();
 
     
-    dispatch(updateMyHomePage(title, description, backgroundColor, color));
+    // dispatch(updateMyStories(names, content, imageUrl));
   }
   return (
-    <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+    <div>
+
+      <h2>Select Your Story to Edit:</h2>
+      <select>
+      {stories.map(story=>{
+
+          return (
+            <option key={story.id} value={story.name}>{story.name}</option>
+          )
+      })}
+
+      </select>
+
+    {/* <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
       <h1 className="mt-5 mb-5">Edit your page</h1>
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           value={title}
           onChange={event => setTitle(event.target.value)}
@@ -66,6 +81,8 @@ export default function MyHomePageEditForm() {
           Save changes
         </Button>
       </Form.Group>
-    </Form>
+    </Form> */}
+    
+    </div>
   );
 }

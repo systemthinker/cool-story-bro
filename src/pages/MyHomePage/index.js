@@ -6,6 +6,7 @@ import { fetchMyHomePage } from '../../store/homepageDetails/actions'
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
 import MyHomePageCard from '../../components/MyHomePageCard'
 import MyHomepageEditForm from '../../components/MyHomePageEditForm'
+import MyStoriesEditForm from '../../components/MyStoriesEditForm'
 import Stories from '../../components/Stories'
 
 export default function MyHomePage() {
@@ -51,6 +52,8 @@ export default function MyHomePage() {
                                     />
                             )
                         })}
+
+                        <MyStoriesEditForm />
                         
                          
                 

@@ -20,7 +20,7 @@ export default function Navigation() {
   return (
     <Navbar bg="x" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
-        Cool Story Bro
+        Post Your Story
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav bg-light" />
       <Navbar.Collapse id="basic-navbar-nav">

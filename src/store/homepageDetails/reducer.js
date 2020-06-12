@@ -1,7 +1,9 @@
 const initialState = 
     {
         details: "detailsTest",
-        myHomePage: "start",
+        myHomePage: {
+            stories: []
+        },
     }
 
 
