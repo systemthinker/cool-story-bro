@@ -39,12 +39,12 @@ export const fetchMyHomePage = () => {
     return async (dispatch,getState) => {
       try{
 
-      const id = getState().user.id
+            const id = getState().user.id
 
            
-      const response = await axios.post(`http://localhost:4000/myhomepage`,{id})
+      const response = await axios.get(`http://localhost:4000/myhomepage/${id}`)
 
-      console.log('response', response.data)
+      
         
      
       dispatch(fetchMyHomePageAction(response.data));
