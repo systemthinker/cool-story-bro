@@ -44,7 +44,7 @@ function App() {
         <Route exact path="/" component={HomePages} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
-        <Route path="/myhomepage/" component={MyHomePage} />
+        <Route path="/myhomepage/:id" component={MyHomePage} />
         <Route path="/homepages/:id" component={HomePageDetails} />
         
       </Switch>

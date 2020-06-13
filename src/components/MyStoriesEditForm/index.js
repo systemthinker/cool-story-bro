@@ -13,13 +13,15 @@ export default function MyStoriesEditForm() {
   const dispatch = useDispatch();
 
   const [names, setNames] = useState(stories.map(story=>story.name));
+
+  
   
  
 
-  const [name, setName] = useState('');
-  const [content, setContent] = useState(stories.map(story=>story.content) || []);
+  const [name, setName] = useState('Your name here');
+  const [content, setContent] = useState(stories.map(story=>story.content) || "Your Story here");
   const [imageUrl, setImageUrl] = useState(
-    stories.map(story=>story.imageUrl) || []
+    stories.map(story=>story.imageUrl) || "Your image here"
   );
   const [storyId, setStoryId] = useState()
 
@@ -35,10 +37,19 @@ export default function MyStoriesEditForm() {
 
   function selectFilter(e){
     const storyId = parseInt(e);
+   
     
     setStoryId(storyId);
     let copyOfStories =[...stories]
     setFilteredStories(copyOfStories.filter(story => story.id === storyId))
+    copyOfStories.filter(story => story.id === storyId).map(s => {
+      
+      setName(s.name)
+      setContent(s.content)
+      setImageUrl(s.imageUrl)
+      
+      
+    })
   };
 
   function returnForm(){
@@ -52,7 +63,6 @@ export default function MyStoriesEditForm() {
           value={name}
           onChange={event => setName(event.target.value)}
           type="text"
-          placeholder="Name of your Story"
           required
         />
       </Form.Group>
@@ -63,15 +73,16 @@ export default function MyStoriesEditForm() {
           value={content}
           onChange={event => setContent(event.target.value)}
           type="text"
-          placeholder="Content of your story"
+          placeholder={`${filteredStories.content}`}
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Background Color</Form.Label>
+        <Form.Label>Image Url</Form.Label>
         <Form.Control
           value={imageUrl}
           onChange={event => setImageUrl(event.target.value)}
           type="text"
+          placeholder={`${filteredStories.imageUrl}`}
         />
       </Form.Group>
     

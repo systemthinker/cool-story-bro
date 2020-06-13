@@ -4,6 +4,8 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchMyHomePage } from '../../store/homepageDetails/actions'
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
+import { useHistory } from 'react-router-dom'
+
 import MyHomePageCard from '../../components/MyHomePageCard'
 import MyHomepageEditForm from '../../components/MyHomePageEditForm'
 import MyStoriesEditForm from '../../components/MyStoriesEditForm'
@@ -11,15 +13,16 @@ import Stories from '../../components/Stories'
 
 export default function MyHomePage() {
     
-    
+    const history = useHistory()
     const dispatch = useDispatch()
     const myPage = useSelector(selectMyHomePage)
     const stories = myPage.stories || []
+    const id = parseInt(history.location.pathname.slice(12,13))
    
 
     useEffect( ()=>{
         
-        dispatch(fetchMyHomePage())
+        dispatch(fetchMyHomePage(id))
         
         
     },[dispatch])

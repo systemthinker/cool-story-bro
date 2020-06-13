@@ -28,13 +28,11 @@ export default (state = initialState, action) => {
       }
 
       case "UPDATE_MY_STORY" :
-        console.log('id is', action.payload.id);
-        console.log('stories', state.myHomePage.stories[action.payload.id])
-       
+               
           return {
               ...state,
               myHomePage : {...state.myHomePage,
-              stories : [...state.myHomePage.stories.filter(s=>s.id === action.payload.id) , action.payload] 
+              stories : [action.payload, ...state.myHomePage.stories.filter(s=>s.id !== action.payload.id)] 
 
               }
               }  

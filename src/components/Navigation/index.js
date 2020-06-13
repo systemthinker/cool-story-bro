@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
+import { selectUser } from '../../store/user/selectors'
 
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
@@ -12,10 +13,12 @@ import './index.css'
 
 export default function Navigation() {
   const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
+ 
   
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
-  const seeMyPageIfLoggedIn = token ? <NavbarItem className="active" path="/myhomepage" linkText="My Home Page" /> :null
+  const seeMyPageIfLoggedIn = token ? <NavbarItem className="active" path={`/myhomepage/${user.id}`} linkText="My Home Page" /> :null
 
   return (
     <Navbar bg="x" expand="lg">
