@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
-import { updateMyHomePage } from "../../store/homepageDetails/actions";
+import { updateMyStories } from "../../store/homepageDetails/actions";
 import './index.css'
 
 export default function MyStoriesEditForm() {
@@ -21,6 +21,7 @@ export default function MyStoriesEditForm() {
   const [imageUrl, setImageUrl] = useState(
     stories.map(story=>story.imageUrl) || []
   );
+  const [storyId, setStoryId] = useState()
 
   const [filteredStories, setFilteredStories] = useState(null)
   
@@ -29,11 +30,13 @@ export default function MyStoriesEditForm() {
     event.preventDefault();
 
     
-    // dispatch(updateMyStories(names, content, imageUrl));
+    dispatch(updateMyStories(storyId, name, content, imageUrl));
   }
 
   function selectFilter(e){
     const storyId = parseInt(e);
+    
+    setStoryId(storyId);
     let copyOfStories =[...stories]
     setFilteredStories(copyOfStories.filter(story => story.id === storyId))
   };
@@ -89,6 +92,7 @@ export default function MyStoriesEditForm() {
       
        <h2>Select Which Story To Edit:</h2>
                <select className="selectStory" onChange={e=>selectFilter(e.target.value)}>
+                 <option>Select your story</option>
                   {stories.map(story=>{
 
                       return (

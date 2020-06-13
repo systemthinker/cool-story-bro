@@ -4,6 +4,7 @@ const initialState =
         myHomePage: {
             stories: []
         },
+        
     }
 
 
@@ -25,6 +26,19 @@ export default (state = initialState, action) => {
             ...state,
             myHomePage: {...action.payload}
       }
+
+      case "UPDATE_MY_STORY" :
+        console.log('id is', action.payload.id);
+        console.log('stories', state.myHomePage.stories[action.payload.id])
+       
+          return {
+              ...state,
+              myHomePage : {...state.myHomePage,
+              stories : [...state.myHomePage.stories.filter(s=>s.id === action.payload.id) , action.payload] 
+
+              }
+              }  
+          
             
             
         
