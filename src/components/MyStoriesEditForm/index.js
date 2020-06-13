@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
-import { updateMyStories } from "../../store/homepageDetails/actions";
+import { updateMyStories,deleteMyStory } from "../../store/homepageDetails/actions";
 import './index.css'
 
 export default function MyStoriesEditForm() {
@@ -33,6 +33,11 @@ export default function MyStoriesEditForm() {
 
     
     dispatch(updateMyStories(storyId, name, content, imageUrl));
+  }
+
+  function submitFormDelete(event){
+    event.preventDefault();
+    dispatch(deleteMyStory(storyId))
   }
 
   function selectFilter(e){
@@ -92,6 +97,18 @@ export default function MyStoriesEditForm() {
         </Button>
       </Form.Group>
     </Form>
+
+    <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+      
+      <Form.Group>
+      <Button variant="danger" type="submit" onClick={submitFormDelete}>
+          Delete This Story
+        </Button>
+        <div>
+        <Form.Label>Warning: deleting this story will remove it forever</Form.Label>
+        </div>
+      </Form.Group>
+    </Form>  
       </div>
     )
   }

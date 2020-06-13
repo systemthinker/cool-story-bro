@@ -30,6 +30,11 @@ export const fetchDetailsPage = (id) => {
     payload: story
   })
 
+  export const deleteMyStoryAction = story => ({
+    type: "DELETE_MY_STORY",
+    payload: story
+  })
+
 export const fetchMyHomePage = (id) => {
    
     return async (dispatch,getState) => {
@@ -90,3 +95,19 @@ export const updateMyHomePage = (title, description, backgroundColor, color) => 
       }
     };
   };
+
+export const deleteMyStory =(id) => {
+
+  return async(dispatch,getState)=>{
+    try{
+
+      const response = await axios.delete(`http://localhost:4000/story/${id}`)
+      console.log('response is', response)
+
+      dispatch(deleteMyStoryAction(response.data))
+    } catch(e){
+      console.log(`error: ${e.message}`)
+    }
+
+  } 
+}

@@ -35,7 +35,15 @@ export default (state = initialState, action) => {
               stories : [action.payload, ...state.myHomePage.stories.filter(s=>s.id !== action.payload.id)] 
 
               }
-              }  
+              } 
+       case "DELETE_MY_STORY" :
+           return {
+               ...state,
+               myHomePage: {...state.myHomePage,
+               stories : [...state.myHomePage.stories.filter(s=>s.id !== action.payload.id)] 
+            
+            }
+           }        
           
             
             
