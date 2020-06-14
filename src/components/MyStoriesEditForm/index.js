@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
 import { updateMyStories,deleteMyStory } from "../../store/homepageDetails/actions";
+import { showMessageWithTimeout } from '../../store/appState/actions'
 import './index.css'
 
 export default function MyStoriesEditForm() {
@@ -33,11 +34,13 @@ export default function MyStoriesEditForm() {
 
     
     dispatch(updateMyStories(storyId, name, content, imageUrl));
+    dispatch(showMessageWithTimeout("success", false, `You've succesfully edited your ${name} story!`, 1500));
   }
 
   function submitFormDelete(event){
     event.preventDefault();
     dispatch(deleteMyStory(storyId))
+    dispatch(showMessageWithTimeout("success", false, `You've succesfully deleted your ${name} story!`, 1500));
   }
 
   function selectFilter(e){
@@ -61,7 +64,7 @@ export default function MyStoriesEditForm() {
     return (
       <div>
         <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-      <h1 className="mt-5 mb-5">Edit your Story</h1>
+      <h1 className="mt-5 mb-5">Edit your {name} Story</h1>
       <Form.Group>
         <Form.Label>Name</Form.Label>
         <Form.Control

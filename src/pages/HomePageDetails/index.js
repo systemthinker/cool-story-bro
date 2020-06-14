@@ -27,7 +27,7 @@ export default function HomePageDetails() {
     
     return (
         <div>
-            <h1>does it work?</h1>
+            <h1>Homepage Details</h1>
             
                 
                     

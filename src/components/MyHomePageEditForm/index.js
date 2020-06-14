@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
 import { updateMyHomePage } from "../../store/homepageDetails/actions";
+import { showMessageWithTimeout } from '../../store/appState/actions'
 
 export default function MyHomePageEditForm() {
   const homepage = useSelector(selectMyHomePage);
@@ -21,10 +22,11 @@ export default function MyHomePageEditForm() {
 
     
     dispatch(updateMyHomePage(title, description, backgroundColor, color));
+    dispatch(showMessageWithTimeout("success", false, `You've succesfully edited your ${title} Homepage!`, 1500))
   }
   return (
     <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-      <h1 className="mt-5 mb-5">Edit your page</h1>
+      <h1 className="mt-5 mb-5">Edit your Homepage</h1>
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control

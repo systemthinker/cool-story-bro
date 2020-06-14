@@ -10,6 +10,7 @@ import MyHomePageCard from '../../components/MyHomePageCard'
 import MyHomepageEditForm from '../../components/MyHomePageEditForm'
 import MyStoriesEditForm from '../../components/MyStoriesEditForm'
 import Stories from '../../components/Stories'
+import MessageBox from '../../components/MessageBox'
 
 export default function MyHomePage() {
     
@@ -31,6 +32,7 @@ export default function MyHomePage() {
         <div>
             <h1>My Home Page</h1>
             
+            
                 
                     
                         <MyHomePageCard
@@ -42,6 +44,7 @@ export default function MyHomePage() {
                           color={myPage.color}
                           showLink={true}
                         />
+                        <MessageBox />
 
                         <MyHomepageEditForm />
                         {stories.map(story =>{
@@ -55,8 +58,9 @@ export default function MyHomePage() {
                                     />
                             )
                         })}
-
+                        <MessageBox />
                         <MyStoriesEditForm />
+
                         
                          
                 
