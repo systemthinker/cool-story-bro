@@ -43,7 +43,14 @@ export default (state = initialState, action) => {
                stories : [...state.myHomePage.stories.filter(s=>s.id !== action.payload.id)] 
             
             }
-           }        
+           }  
+           
+        case "CREATE_MY_STORY":
+            return {
+                ...state,
+                myHomePage: {...state.myHomePage,
+                stories: [...state.myHomePage.stories, action.payload]}
+            }   
           
             
             

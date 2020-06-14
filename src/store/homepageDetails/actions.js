@@ -35,6 +35,11 @@ export const fetchDetailsPage = (id) => {
     payload: story
   })
 
+  export const createMyStoryAction = story =>({
+    type: "CREATE_MY_STORY",
+    payload: story
+  })
+
 export const fetchMyHomePage = (id) => {
    
     return async (dispatch,getState) => {
@@ -102,9 +107,29 @@ export const deleteMyStory =(id) => {
     try{
 
       const response = await axios.delete(`http://localhost:4000/story/${id}`)
-      console.log('response is', response)
+      
 
       dispatch(deleteMyStoryAction(response.data))
+    } catch(e){
+      console.log(`error: ${e.message}`)
+    }
+
+  } 
+}
+
+export const createMyStory =(id,name,content,imageUrl) => {
+
+  return async(dispatch,getState)=>{
+    try{
+
+      const response = await axios.post(`http://localhost:4000/story/${id}`,{
+        name,
+        content,
+        imageUrl,
+      })
+      
+      console.log('res is', response)
+      dispatch(createMyStoryAction(response.data))
     } catch(e){
       console.log(`error: ${e.message}`)
     }

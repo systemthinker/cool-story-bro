@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom'
 
 import MyHomePageCard from '../../components/MyHomePageCard'
 import MyHomepageEditForm from '../../components/MyHomePageEditForm'
+import MyStoryCreateForm from '../../components/MyStoryCreateForm'
 import MyStoriesEditForm from '../../components/MyStoriesEditForm'
 import Stories from '../../components/Stories'
 import MessageBox from '../../components/MessageBox'
@@ -45,7 +46,7 @@ export default function MyHomePage() {
                           showLink={true}
                         />
                         <MessageBox />
-
+                       
                         <MyHomepageEditForm />
                         {stories.map(story =>{
                         return (
@@ -59,6 +60,7 @@ export default function MyHomePage() {
                             )
                         })}
                         <MessageBox />
+                        <MyStoryCreateForm />
                         <MyStoriesEditForm />
 
                         

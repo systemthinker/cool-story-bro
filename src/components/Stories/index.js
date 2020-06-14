@@ -12,7 +12,7 @@ export default function Stories(props) {
         >
           <h1>{props.name}</h1>
           <p>{props.content}</p>
-          <img src={props.imageUrl} height="100"></img>
+          <img src={props.imageUrl} height="250" width="300"></img>
           
         </Jumbotron>
       );

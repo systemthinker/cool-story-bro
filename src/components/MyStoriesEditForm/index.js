@@ -63,6 +63,7 @@ export default function MyStoriesEditForm() {
   function returnForm(){
     return (
       <div>
+        
         <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
       <h1 className="mt-5 mb-5">Edit your {name} Story</h1>
       <Form.Group>
@@ -121,7 +122,7 @@ export default function MyStoriesEditForm() {
     <div>
 
       
-       <h2>Select Which Story To Edit:</h2>
+       <h2>Edit Your Story:</h2>
                <select className="selectStory" onChange={e=>selectFilter(e.target.value)}>
                  <option>Select your story</option>
                   {stories.map(story=>{
