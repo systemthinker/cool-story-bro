@@ -48,8 +48,11 @@ function submitForm(event){
         <Form.Control
           value={content}
           onChange={event => setContent(event.target.value)}
-          type="text"
-          
+          as="textarea"
+          aria-label="With textarea"
+          placeholder="What is your story about"
+          rows="10"
+        
         />
       </Form.Group>
       <Form.Group>

@@ -81,8 +81,10 @@ export default function MyStoriesEditForm() {
         <Form.Control
           value={content}
           onChange={event => setContent(event.target.value)}
-          type="text"
           placeholder={`${filteredStories.content}`}
+          as="textarea"
+          aria-label="With textarea"
+          rows="10"
         />
       </Form.Group>
       <Form.Group>

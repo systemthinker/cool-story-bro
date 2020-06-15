@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectMyHomePage } from '../../store/homepageDetails/selectors'
 import { updateMyHomePage } from "../../store/homepageDetails/actions";
 import { showMessageWithTimeout } from '../../store/appState/actions'
+import './index.css'
 
 export default function MyHomePageEditForm() {
   const homepage = useSelector(selectMyHomePage);
@@ -43,9 +44,14 @@ export default function MyHomePageEditForm() {
         <Form.Control
           value={description}
           onChange={event => setDescription(event.target.value)}
-          type="text"
+          as="textarea"
+          aria-label="With textarea"
+       
+          bg="bigger"
           placeholder="What is your page about"
+          rows="10"
         />
+        
       </Form.Group>
       <Form.Group>
         <Form.Label>Background Color</Form.Label>

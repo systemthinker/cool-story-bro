@@ -9,6 +9,7 @@ import { selectUser } from '../../store/user/selectors'
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import SingUp from './SignUp'
 import './index.css'
 
 export default function Navigation() {
@@ -18,10 +19,11 @@ export default function Navigation() {
   
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+  const signUpControls = token ? null : <SingUp />;
   const seeMyPageIfLoggedIn = token ? <NavbarItem className="active" path={`/myhomepage/${user.id}`} linkText="My Home Page" /> :null
 
   return (
-    <Navbar bg="x" expand="lg">
+    <Navbar bg="blue" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
         Post Your Story
       </Navbar.Brand>
@@ -31,6 +33,7 @@ export default function Navigation() {
           <NavbarItem path="/" linkText="Home" />
           {seeMyPageIfLoggedIn}
           {loginLogoutControls}
+          {signUpControls}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
