@@ -47,7 +47,8 @@ export const fetchMyHomePage = (id) => {
           
       const response = await axios.get(`http://localhost:4000/myhomepage/${id}`)
     
-      dispatch(fetchMyHomePageAction(response.data));
+        
+      dispatch(fetchMyHomePageAction(response.data.homepage));
 
       } catch(e){
         console.log(`error: ${e.message}`)
@@ -70,8 +71,10 @@ export const updateMyHomePage = (title, description, backgroundColor, color) => 
         backgroundColor,
         color,
       })
+
+      console.log('res', response)
      
-      dispatch(fetchMyHomePageAction(response.data));
+      dispatch(fetchMyHomePageAction(response.data.homepage));
 
       } catch(e){
         console.log(`error: ${e.message}`)

@@ -1,9 +1,13 @@
 import React from "react";
+import { useSelector } from 'react-redux' 
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { selectToken } from '../../store/user/selectors'
 
 export default function Homepages(props) {
+  
+  
   return (
     <Jumbotron
       style={{

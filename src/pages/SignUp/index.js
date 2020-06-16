@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { signUp } from "../../store/user/actions";
+import { signUp,login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
@@ -30,6 +30,13 @@ export default function SignUp() {
     setEmail("");
     setPassword("");
     setName("");
+  }
+
+  function eventHandler(event){
+    event.preventDefault();
+    const email = "test@test.com"
+    const password = "1234"
+    dispatch(login(email, password));
   }
 
   return (
@@ -75,6 +82,9 @@ export default function SignUp() {
             Sign up
           </Button>
         </Form.Group>
+        <Link to='/login'>
+          <Button onClick={e=>eventHandler(e)}variant="danger">I just want to look around</Button>
+        </Link>
         <Link to="/login">Click here to log in</Link>
       </Form>
     </Container>

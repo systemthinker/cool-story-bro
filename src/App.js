@@ -16,7 +16,7 @@ import MyHomePage from './pages/MyHomePage'
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import { selectToken } from "./store/user/selectors"
+
 
 
 
@@ -26,6 +26,7 @@ import { selectToken } from "./store/user/selectors"
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
+  
   
 
   useEffect(() => {

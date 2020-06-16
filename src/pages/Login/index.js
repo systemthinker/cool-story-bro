@@ -41,7 +41,7 @@ export default function SignUp() {
             value={email}
             onChange={event => setEmail(event.target.value)}
             type="email"
-            placeholder="Enter email"
+            placeholder="Your email here"
             required
           />
         </Form.Group>
@@ -52,7 +52,7 @@ export default function SignUp() {
             value={password}
             onChange={event => setPassword(event.target.value)}
             type="password"
-            placeholder="Password"
+            placeholder="Your password here"
             required
           />
         </Form.Group>

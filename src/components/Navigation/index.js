@@ -9,7 +9,7 @@ import { selectUser } from '../../store/user/selectors'
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
-import SingUp from './SignUp'
+import SignUp from './SignUp'
 import './index.css'
 
 export default function Navigation() {
@@ -19,7 +19,7 @@ export default function Navigation() {
   
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
-  const signUpControls = token ? null : <SingUp />;
+  const signUpControls = token ? null : <SignUp />;
   const seeMyPageIfLoggedIn = token ? <NavbarItem className="active" path={`/myhomepage/${user.id}`} linkText="My Home Page" /> :null
 
   return (
